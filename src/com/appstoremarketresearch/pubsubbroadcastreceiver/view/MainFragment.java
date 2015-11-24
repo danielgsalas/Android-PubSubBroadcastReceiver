@@ -1,6 +1,7 @@
 package com.appstoremarketresearch.pubsubbroadcastreceiver.view;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,7 +42,8 @@ public class MainFragment extends Fragment
                     UserCredentials credentials = new UserCredentials();
                     credentials.setUsername(username);
 
-                    SignInTask task = new SignInTask(credentials);
+                    Context context = getActivity();
+                    SignInTask task = new SignInTask(context, credentials);
                     task.execute();
                 }
             }
