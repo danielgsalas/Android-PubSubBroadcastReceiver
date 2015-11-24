@@ -5,9 +5,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.appstoremarketresearch.pubsubbroadcastreceiver.R;
+import com.appstoremarketresearch.pubsubbroadcastreceiver.model.SignInTask;
+import com.appstoremarketresearch.pubsubbroadcastreceiver.model.UserCredentials;
 
+/**
+ * MainFragment
+ */
 public class MainFragment extends Fragment
 {
     @Override
@@ -19,6 +26,26 @@ public class MainFragment extends Fragment
         super.onCreateView(inflater, container, savedInstanceState);
         
         View topLevelView = inflater.inflate(R.layout.fragment_main, container, false);
+        final EditText editText = (EditText)topLevelView.findViewById(R.id.username);
+        
+        Button button = (Button)topLevelView.findViewById(R.id.sign_in_button);
+        button.setOnClickListener(new View.OnClickListener()
+        {            
+            @Override
+            public void onClick(View view)
+            {
+                String username = editText.getText().toString();
+                
+                if (username != null && !username.isEmpty())
+                {
+                    UserCredentials credentials = new UserCredentials();
+                    credentials.setUsername(username);
+
+                    SignInTask task = new SignInTask(credentials);
+                    task.execute();
+                }
+            }
+        });
         
         return topLevelView;
     }
