@@ -1,11 +1,14 @@
 package com.appstoremarketresearch.pubsubbroadcastreceiver.event;
 
-import com.appstoremarketresearch.pubsubbroadcastreceiver.model.SignedInUser;
+import java.util.HashSet;
+import java.util.Set;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.appstoremarketresearch.pubsubbroadcastreceiver.model.SignedInUser;
 
 /**
  * AppEventBroker
@@ -14,6 +17,19 @@ public class AppEventBroker
     extends BroadcastReceiver
     implements AppEventListener
 {
+    private static Set<AppEventListener> appEventListeners;
+    
+    /**
+     * initializeCollection
+     */
+    private static void initializeCollection()
+    {
+        if (appEventListeners == null)
+        {
+            appEventListeners = new HashSet<AppEventListener>();
+        }
+    }
+    
     @Override
     public void onReceive(Context context, Intent intent)
     {
@@ -23,29 +39,63 @@ public class AppEventBroker
         String key = SignedInUser.class.getSimpleName();
         Object user = extras.getSerializable(key);
         
+        initializeCollection();
+        
         if (user == null)
         {
             // ignore null SignedInUser
         }
-        else if (AppEvent.SIGN_IN.name().equals(action))
+        else if (AppEvent.SIGNED_IN.name().equals(action))
         {
-            signIn((SignedInUser)user);
+            signedIn((SignedInUser)user);
         }
-        else if (AppEvent.USER_ROLE_RECEIVED.name().equals(action))
+        else if (AppEvent.RECEIVED_USER_ROLE.name().equals(action))
         {
-            userRoleReceived((SignedInUser)user);
+            receivedUserRole((SignedInUser)user);
+        }
+    }
+    
+    /**
+     * Register for event notification
+     */
+    public static void register(AppEventListener listener)
+    {
+        initializeCollection();
+        
+        if (listener != null)
+        {
+            appEventListeners.add(listener);
+        }
+    }
+    
+    /**
+     * Unregister from event notification
+     */
+    public static void unregister(AppEventListener listener)
+    {
+        initializeCollection();
+        
+        if (listener != null)
+        {
+            appEventListeners.remove(listener);
         }
     }
     
     @Override
-    public void signIn(SignedInUser user)
+    public void signedIn(SignedInUser user)
     {
-        
+        for (AppEventListener listener : appEventListeners)
+        {
+            listener.signedIn(user);
+        }
     }
     
     @Override
-    public void userRoleReceived(SignedInUser user)
+    public void receivedUserRole(SignedInUser user)
     {
-        
+        for (AppEventListener listener : appEventListeners)
+        {
+            listener.receivedUserRole(user);
+        }
     }
 }

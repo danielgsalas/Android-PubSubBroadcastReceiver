@@ -24,8 +24,8 @@
         <receiver android:name=".event.AppEventBroker" 
             android:exported="false">
             <intent-filter>
-                <action android:name="SIGN_IN" />
-                <action android:name="USER_ROLE_RECEIVED" />
+                <action android:name="SIGNED_IN" />
+                <action android:name="RECEIVED_USER_ROLE" />
             </intent-filter>
         </receiver>
     </application>

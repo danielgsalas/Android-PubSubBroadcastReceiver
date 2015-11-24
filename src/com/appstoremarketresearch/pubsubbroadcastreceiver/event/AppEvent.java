@@ -5,6 +5,6 @@ package com.appstoremarketresearch.pubsubbroadcastreceiver.event;
  */
 public enum AppEvent
 {
-    SIGN_IN,
-    USER_ROLE_RECEIVED
+    SIGNED_IN,
+    RECEIVED_USER_ROLE
 }

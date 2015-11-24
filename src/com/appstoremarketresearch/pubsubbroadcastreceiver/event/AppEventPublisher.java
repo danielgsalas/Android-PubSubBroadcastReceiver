@@ -11,14 +11,14 @@ import com.appstoremarketresearch.pubsubbroadcastreceiver.model.SignedInUser;
 public class AppEventPublisher
 {
     /**
-     * notifySignIn
+     * notifySignedIn
      */
-    public static void notifySignIn(
+    public static void notifySignedIn(
         Context context, 
         SignedInUser user)
     {
         Intent intent = new Intent();
-        intent.setAction(AppEvent.SIGN_IN.name());
+        intent.setAction(AppEvent.SIGNED_IN.name());
         
         String key = SignedInUser.class.getSimpleName();
         intent.putExtra(key, user);
@@ -27,14 +27,14 @@ public class AppEventPublisher
     }
     
     /**
-     * notifyUserRoleReceived
+     * notifyReceivedUserRole
      */
-    public static void notifyUserRoleReceived(
+    public static void notifyReceivedUserRole(
         Context context, 
         SignedInUser user)
     {
         Intent intent = new Intent();
-        intent.setAction(AppEvent.USER_ROLE_RECEIVED.name());
+        intent.setAction(AppEvent.RECEIVED_USER_ROLE.name());
         
         String key = SignedInUser.class.getSimpleName();
         intent.putExtra(key, user);

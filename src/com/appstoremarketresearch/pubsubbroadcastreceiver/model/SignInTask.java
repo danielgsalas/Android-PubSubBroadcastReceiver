@@ -54,6 +54,6 @@ public class SignInTask extends AsyncTask<Void, Void, SignedInUser>
      */
     protected void onPostExecute(SignedInUser user) 
     {
-        AppEventPublisher.notifySignIn(context, user);
+        AppEventPublisher.notifySignedIn(context, user);
     }
 }

@@ -7,7 +7,13 @@ import com.appstoremarketresearch.pubsubbroadcastreceiver.model.SignedInUser;
  */
 public interface AppEventListener
 {
-    void signIn(SignedInUser user);
+    /**
+     * signedIn
+     */
+    void signedIn(SignedInUser user);
     
-    void userRoleReceived(SignedInUser user);
+    /**
+     * receivedUserRole
+     */
+    void receivedUserRole(SignedInUser user);
 }
