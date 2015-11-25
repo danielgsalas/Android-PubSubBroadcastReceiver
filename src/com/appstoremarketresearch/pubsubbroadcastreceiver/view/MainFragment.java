@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.appstoremarketresearch.pubsubbroadcastreceiver.R;
-import com.appstoremarketresearch.pubsubbroadcastreceiver.event.AppEventBroker;
+import com.appstoremarketresearch.pubsubbroadcastreceiver.event.AppEventNotifier;
 import com.appstoremarketresearch.pubsubbroadcastreceiver.event.UserEventListener;
 import com.appstoremarketresearch.pubsubbroadcastreceiver.model.SignInTask;
 import com.appstoremarketresearch.pubsubbroadcastreceiver.model.SignedInUser;
@@ -69,7 +69,7 @@ public class MainFragment
         });        
         
         // register for event notification
-        AppEventBroker.register(this);
+        AppEventNotifier.register(this);
         
         return topLevelView;
     }
@@ -80,7 +80,7 @@ public class MainFragment
         super.onDestroy();
         
         // unregister from event notification
-        AppEventBroker.unregister(this);
+        AppEventNotifier.unregister(this);
     }
     
     @Override

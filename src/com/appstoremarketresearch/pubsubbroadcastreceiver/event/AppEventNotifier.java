@@ -11,9 +11,9 @@ import android.os.Bundle;
 import com.appstoremarketresearch.pubsubbroadcastreceiver.model.SignedInUser;
 
 /**
- * AppEventBroker
+ * AppEventNotifier
  */
-public class AppEventBroker 
+public class AppEventNotifier 
     extends BroadcastReceiver
     implements UserEventListener
 {

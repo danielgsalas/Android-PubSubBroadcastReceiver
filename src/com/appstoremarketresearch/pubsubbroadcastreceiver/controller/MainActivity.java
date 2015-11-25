@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 
 import com.appstoremarketresearch.pubsubbroadcastreceiver.R;
-import com.appstoremarketresearch.pubsubbroadcastreceiver.event.AppEventBroker;
+import com.appstoremarketresearch.pubsubbroadcastreceiver.event.AppEventNotifier;
 import com.appstoremarketresearch.pubsubbroadcastreceiver.event.UserEventListener;
 import com.appstoremarketresearch.pubsubbroadcastreceiver.model.GetUsersRolesTask;
 import com.appstoremarketresearch.pubsubbroadcastreceiver.model.SignedInUser;
@@ -24,7 +24,7 @@ public class MainActivity
         setContentView(R.layout.activity_main);
         
         // register for event notification
-        AppEventBroker.register(this);
+        AppEventNotifier.register(this);
     }
 
     @Override
@@ -41,7 +41,7 @@ public class MainActivity
         super.onDestroy();
         
         // unregister from event notification
-        AppEventBroker.unregister(this);
+        AppEventNotifier.unregister(this);
     }
     
     @Override
