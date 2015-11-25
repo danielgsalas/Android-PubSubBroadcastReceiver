@@ -106,11 +106,16 @@ public class MainFragment
     }
     
     @Override
-    public void receivedUserRole(SignedInUser user)
+    public void receivedUserRoles(SignedInUser user)
     {
+        Resources res = getActivity().getResources();
+        String message = res.getString(R.string.user_role_message);
+        message = String.format(message, user.getUserRoles().toString());        
+        message = message.replace("[", "");
+        message = message.replace("]", "");
+        
         int id = R.id.user_role_message;
         TextView userRoleMessageView = (TextView) topLevelView.findViewById(id);
-        
-        // TODO: display user role message
+        userRoleMessageView.setText(message);
     }
 }

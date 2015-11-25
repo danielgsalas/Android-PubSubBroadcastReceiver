@@ -49,9 +49,9 @@ public class AppEventBroker
         {
             signedIn((SignedInUser)user);
         }
-        else if (AppEvent.RECEIVED_USER_ROLE.name().equals(action))
+        else if (AppEvent.RECEIVED_USER_ROLES.name().equals(action))
         {
-            receivedUserRole((SignedInUser)user);
+            receivedUserRoles((SignedInUser)user);
         }
     }
     
@@ -91,11 +91,11 @@ public class AppEventBroker
     }
     
     @Override
-    public void receivedUserRole(SignedInUser user)
+    public void receivedUserRoles(SignedInUser user)
     {
         for (AppEventListener listener : appEventListeners)
         {
-            listener.receivedUserRole(user);
+            listener.receivedUserRoles(user);
         }
     }
 }

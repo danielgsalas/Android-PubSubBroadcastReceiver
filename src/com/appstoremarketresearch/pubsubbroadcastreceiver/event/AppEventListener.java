@@ -13,7 +13,7 @@ public interface AppEventListener
     void signedIn(SignedInUser user);
     
     /**
-     * receivedUserRole
+     * receivedUserRoles
      */
-    void receivedUserRole(SignedInUser user);
+    void receivedUserRoles(SignedInUser user);
 }

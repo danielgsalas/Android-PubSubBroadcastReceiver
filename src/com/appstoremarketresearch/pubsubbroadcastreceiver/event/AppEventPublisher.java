@@ -27,14 +27,14 @@ public class AppEventPublisher
     }
     
     /**
-     * notifyReceivedUserRole
+     * notifyReceivedUserRoles
      */
-    public static void notifyReceivedUserRole(
+    public static void notifyReceivedUserRoles(
         Context context, 
         SignedInUser user)
     {
         Intent intent = new Intent();
-        intent.setAction(AppEvent.RECEIVED_USER_ROLE.name());
+        intent.setAction(AppEvent.RECEIVED_USER_ROLES.name());
         
         String key = SignedInUser.class.getSimpleName();
         intent.putExtra(key, user);

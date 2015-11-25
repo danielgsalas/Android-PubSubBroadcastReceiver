@@ -7,6 +7,6 @@
     <string name="sign_in_failure_message">Unknown username</string>
     <string name="sign_in_success_message">Welcome %s</string>
     <string name="username_hint">User Name</string>
-    <string name="user_role_message_prefix">You are signed in as </string>
+    <string name="user_role_message">Your roles: %s</string>
 
 </resources>

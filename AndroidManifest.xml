@@ -25,7 +25,7 @@
             android:exported="false">
             <intent-filter>
                 <action android:name="SIGNED_IN" />
-                <action android:name="RECEIVED_USER_ROLE" />
+                <action android:name="RECEIVED_USER_ROLES" />
             </intent-filter>
         </receiver>
     </application>

@@ -1,6 +1,8 @@
 package com.appstoremarketresearch.pubsubbroadcastreceiver.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * SignedInUser
@@ -11,9 +13,10 @@ public class SignedInUser implements Serializable
     
     private String accessToken;
     private UserCredentials credentials;
-    private UserRole userRole;
     
-    public enum UserRole { ADMIN, EDITOR, READER };    
+    public enum UserRole { ADMIN, EDITOR, READER };
+    
+    private Set<UserRole> userRoles = new HashSet<UserRole>();
 
     public String getAccessToken()
     {
@@ -35,13 +38,23 @@ public class SignedInUser implements Serializable
         this.credentials = credentials;
     }
 
-    public UserRole getUserRole()
+    public Set<UserRole> getUserRoles()
     {
-        return userRole;
+        if (userRoles == null)
+        {
+            userRoles = new HashSet<UserRole>();
+        }
+        
+        return userRoles;
     }
 
-    public void setUserRole(UserRole userRole)
+    public void addUserRole(UserRole userRole)
     {
-        this.userRole = userRole;
+        if (userRoles == null)
+        {
+            userRoles = new HashSet<UserRole>();
+        }
+        
+        userRoles.add(userRole);
     }
 }
