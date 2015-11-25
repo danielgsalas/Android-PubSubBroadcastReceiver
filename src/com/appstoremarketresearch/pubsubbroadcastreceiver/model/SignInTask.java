@@ -40,7 +40,7 @@ public class SignInTask extends AsyncTask<Void, Void, SignedInUser>
         SignedInUser user = new SignedInUser();
         user.setCredentials(credentials);
 
-        if (Math.random() > 0.5)
+        if (Math.random() > 0.33)
         {
             // success!
             user.setAccessToken("abc123");
