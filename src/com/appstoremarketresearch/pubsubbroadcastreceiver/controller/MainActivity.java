@@ -6,7 +6,7 @@ import android.view.Menu;
 
 import com.appstoremarketresearch.pubsubbroadcastreceiver.R;
 import com.appstoremarketresearch.pubsubbroadcastreceiver.event.AppEventBroker;
-import com.appstoremarketresearch.pubsubbroadcastreceiver.event.AppEventListener;
+import com.appstoremarketresearch.pubsubbroadcastreceiver.event.UserEventListener;
 import com.appstoremarketresearch.pubsubbroadcastreceiver.model.GetUsersRolesTask;
 import com.appstoremarketresearch.pubsubbroadcastreceiver.model.SignedInUser;
 
@@ -15,7 +15,7 @@ import com.appstoremarketresearch.pubsubbroadcastreceiver.model.SignedInUser;
  */
 public class MainActivity 
     extends Activity
-    implements AppEventListener
+    implements UserEventListener
 {
     @Override
     protected void onCreate(Bundle savedInstanceState)

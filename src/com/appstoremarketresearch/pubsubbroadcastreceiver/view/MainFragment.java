@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.appstoremarketresearch.pubsubbroadcastreceiver.R;
 import com.appstoremarketresearch.pubsubbroadcastreceiver.event.AppEventBroker;
-import com.appstoremarketresearch.pubsubbroadcastreceiver.event.AppEventListener;
+import com.appstoremarketresearch.pubsubbroadcastreceiver.event.UserEventListener;
 import com.appstoremarketresearch.pubsubbroadcastreceiver.model.SignInTask;
 import com.appstoremarketresearch.pubsubbroadcastreceiver.model.SignedInUser;
 import com.appstoremarketresearch.pubsubbroadcastreceiver.model.UserCredentials;
@@ -23,7 +23,7 @@ import com.appstoremarketresearch.pubsubbroadcastreceiver.model.UserCredentials;
  */
 public class MainFragment 
     extends Fragment
-    implements AppEventListener
+    implements UserEventListener
 {
     private View topLevelView;
     

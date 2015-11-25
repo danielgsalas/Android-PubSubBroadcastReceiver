@@ -15,18 +15,18 @@ import com.appstoremarketresearch.pubsubbroadcastreceiver.model.SignedInUser;
  */
 public class AppEventBroker 
     extends BroadcastReceiver
-    implements AppEventListener
+    implements UserEventListener
 {
-    private static Set<AppEventListener> appEventListeners;
+    private static Set<UserEventListener> userEventListeners;
     
     /**
      * initializeCollection
      */
     private static void initializeCollection()
     {
-        if (appEventListeners == null)
+        if (userEventListeners == null)
         {
-            appEventListeners = new HashSet<AppEventListener>();
+            userEventListeners = new HashSet<UserEventListener>();
         }
     }
     
@@ -45,11 +45,11 @@ public class AppEventBroker
         {
             // ignore null SignedInUser
         }
-        else if (AppEvent.SIGNED_IN.name().equals(action))
+        else if (UserEventType.SIGNED_IN.name().equals(action))
         {
             signedIn((SignedInUser)user);
         }
-        else if (AppEvent.RECEIVED_USER_ROLES.name().equals(action))
+        else if (UserEventType.RECEIVED_USER_ROLES.name().equals(action))
         {
             receivedUserRoles((SignedInUser)user);
         }
@@ -58,33 +58,33 @@ public class AppEventBroker
     /**
      * Register for event notification
      */
-    public static void register(AppEventListener listener)
+    public static void register(UserEventListener listener)
     {
         initializeCollection();
         
         if (listener != null)
         {
-            appEventListeners.add(listener);
+            userEventListeners.add(listener);
         }
     }
     
     /**
      * Unregister from event notification
      */
-    public static void unregister(AppEventListener listener)
+    public static void unregister(UserEventListener listener)
     {
         initializeCollection();
         
         if (listener != null)
         {
-            appEventListeners.remove(listener);
+            userEventListeners.remove(listener);
         }
     }
     
     @Override
     public void signedIn(SignedInUser user)
     {
-        for (AppEventListener listener : appEventListeners)
+        for (UserEventListener listener : userEventListeners)
         {
             listener.signedIn(user);
         }
@@ -93,7 +93,7 @@ public class AppEventBroker
     @Override
     public void receivedUserRoles(SignedInUser user)
     {
-        for (AppEventListener listener : appEventListeners)
+        for (UserEventListener listener : userEventListeners)
         {
             listener.receivedUserRoles(user);
         }

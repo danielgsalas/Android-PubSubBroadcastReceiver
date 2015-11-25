@@ -3,9 +3,9 @@ package com.appstoremarketresearch.pubsubbroadcastreceiver.event;
 import com.appstoremarketresearch.pubsubbroadcastreceiver.model.SignedInUser;
 
 /**
- * AppEventListener
+ * UserEventListener
  */
-public interface AppEventListener
+public interface UserEventListener
 {
     /**
      * signedIn

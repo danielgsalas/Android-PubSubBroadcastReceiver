@@ -18,7 +18,7 @@ public class AppEventPublisher
         SignedInUser user)
     {
         Intent intent = new Intent();
-        intent.setAction(AppEvent.SIGNED_IN.name());
+        intent.setAction(UserEventType.SIGNED_IN.name());
         
         String key = SignedInUser.class.getSimpleName();
         intent.putExtra(key, user);
@@ -34,7 +34,7 @@ public class AppEventPublisher
         SignedInUser user)
     {
         Intent intent = new Intent();
-        intent.setAction(AppEvent.RECEIVED_USER_ROLES.name());
+        intent.setAction(UserEventType.RECEIVED_USER_ROLES.name());
         
         String key = SignedInUser.class.getSimpleName();
         intent.putExtra(key, user);
