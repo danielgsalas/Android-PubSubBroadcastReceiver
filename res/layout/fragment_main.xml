@@ -20,11 +20,13 @@
     <TextView
         android:id="@+id/sign_in_greeting"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent" />
+        android:layout_width="match_parent" 
+        android:textAppearance="?android:attr/textAppearanceLarge" />
     
     <TextView
-        android:id="@+id/user_role"
+        android:id="@+id/user_role_message"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent" />
+        android:layout_width="match_parent" 
+        android:textAppearance="?android:attr/textAppearanceLarge" />
     
 </LinearLayout>    
