@@ -8,12 +8,12 @@ import com.appstoremarketresearch.pubsubbroadcastreceiver.model.SignedInUser;
 public interface UserEventListener
 {
     /**
-     * signedIn
+     * onSignedIn
      */
-    void signedIn(SignedInUser user);
+    void onSignedIn(SignedInUser user);
     
     /**
-     * receivedUserRoles
+     * onReceivedUserRoles
      */
-    void receivedUserRoles(SignedInUser user);
+    void onReceivedUserRoles(SignedInUser user);
 }

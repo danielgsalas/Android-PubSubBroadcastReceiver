@@ -17,18 +17,8 @@ public class AppEventNotifier
     extends BroadcastReceiver
     implements UserEventListener
 {
-    private static Set<UserEventListener> userEventListeners;
-    
-    /**
-     * initializeCollection
-     */
-    private static void initializeCollection()
-    {
-        if (userEventListeners == null)
-        {
-            userEventListeners = new HashSet<UserEventListener>();
-        }
-    }
+    private static Set<UserEventListener> userEventListeners = 
+        new HashSet<UserEventListener>();
     
     @Override
     public void onReceive(Context context, Intent intent)
@@ -38,30 +28,44 @@ public class AppEventNotifier
         
         String key = SignedInUser.class.getSimpleName();
         Object user = extras.getSerializable(key);
-        
-        initializeCollection();
-        
+
         if (user == null)
         {
             // ignore null SignedInUser
         }
         else if (UserEventType.SIGNED_IN.name().equals(action))
         {
-            signedIn((SignedInUser)user);
+            onSignedIn((SignedInUser)user);
         }
         else if (UserEventType.RECEIVED_USER_ROLES.name().equals(action))
         {
-            receivedUserRoles((SignedInUser)user);
+            onReceivedUserRoles((SignedInUser)user);
         }
     }
+    
+    @Override
+    public void onSignedIn(SignedInUser user)
+    {
+        for (UserEventListener listener : userEventListeners)
+        {
+            listener.onSignedIn(user);
+        }
+    }
+    
+    @Override
+    public void onReceivedUserRoles(SignedInUser user)
+    {
+        for (UserEventListener listener : userEventListeners)
+        {
+            listener.onReceivedUserRoles(user);
+        }
+    }    
     
     /**
      * Register for event notification
      */
     public static void register(UserEventListener listener)
     {
-        initializeCollection();
-        
         if (listener != null)
         {
             userEventListeners.add(listener);
@@ -73,29 +77,9 @@ public class AppEventNotifier
      */
     public static void unregister(UserEventListener listener)
     {
-        initializeCollection();
-        
         if (listener != null)
         {
             userEventListeners.remove(listener);
-        }
-    }
-    
-    @Override
-    public void signedIn(SignedInUser user)
-    {
-        for (UserEventListener listener : userEventListeners)
-        {
-            listener.signedIn(user);
-        }
-    }
-    
-    @Override
-    public void receivedUserRoles(SignedInUser user)
-    {
-        for (UserEventListener listener : userEventListeners)
-        {
-            listener.receivedUserRoles(user);
         }
     }
 }

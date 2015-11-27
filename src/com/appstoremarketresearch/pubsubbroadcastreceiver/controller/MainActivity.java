@@ -78,7 +78,7 @@ public class MainActivity
     }
     
     @Override
-    public void signedIn(SignedInUser user)
+    public void onSignedIn(SignedInUser user)
     {
         if (user != null && user.getAccessToken() != null)
         {
@@ -88,7 +88,7 @@ public class MainActivity
     }
     
     @Override
-    public void receivedUserRoles(SignedInUser user)
+    public void onReceivedUserRoles(SignedInUser user)
     {
         // do nothing        
     }

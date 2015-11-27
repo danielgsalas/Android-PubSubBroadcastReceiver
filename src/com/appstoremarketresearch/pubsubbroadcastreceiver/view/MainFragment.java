@@ -48,7 +48,7 @@ public class MainFragment
     }
     
     @Override
-    public void signedIn(SignedInUser user)
+    public void onSignedIn(SignedInUser user)
     {
         int id = R.id.sign_in_greeting;
         TextView signInGreetingView = (TextView) topLevelView.findViewById(id);
@@ -70,7 +70,7 @@ public class MainFragment
     }
     
     @Override
-    public void receivedUserRoles(SignedInUser user)
+    public void onReceivedUserRoles(SignedInUser user)
     {
         Resources res = getActivity().getResources();
         String message = res.getString(R.string.user_role_message);
