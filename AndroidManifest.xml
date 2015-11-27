@@ -21,7 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <receiver android:name=".event.AppEventBroker" 
+        <receiver android:name=".event.AppEventNotifier" 
             android:exported="false">
             <intent-filter>
                 <action android:name="SIGNED_IN" />
