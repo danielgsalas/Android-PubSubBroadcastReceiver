@@ -30,7 +30,7 @@ public class SignInTask extends AsyncTask<Void, Void, SignedInUser>
         try
         {
             // simulate the time to query a remote API
-            Thread.sleep(1000);
+            Thread.sleep(500);
         }
         catch (InterruptedException ex)
         {
