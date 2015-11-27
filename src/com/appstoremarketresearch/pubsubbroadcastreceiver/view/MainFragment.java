@@ -32,8 +32,8 @@ public class MainFragment
         
         topLevelView = inflater.inflate(R.layout.fragment_main, container, false);
 
-        // register for event notification
-        AppEventNotifier.register(this);
+        // subscribe for event notification
+        AppEventNotifier.subscribe(this);
         
         return topLevelView;
     }
@@ -43,8 +43,8 @@ public class MainFragment
     {
         super.onDestroy();
         
-        // unregister from event notification
-        AppEventNotifier.unregister(this);
+        // unsubscribe from event notification
+        AppEventNotifier.unsubscribe(this);
     }
     
     @Override

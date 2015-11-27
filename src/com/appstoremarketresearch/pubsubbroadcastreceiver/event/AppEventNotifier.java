@@ -62,9 +62,9 @@ public class AppEventNotifier
     }    
     
     /**
-     * Register for event notification
+     * Subscribe for event notification
      */
-    public static void register(UserEventListener listener)
+    public static void subscribe(UserEventListener listener)
     {
         if (listener != null)
         {
@@ -73,9 +73,9 @@ public class AppEventNotifier
     }
     
     /**
-     * Unregister from event notification
+     * Unsubscribe from event notification
      */
-    public static void unregister(UserEventListener listener)
+    public static void unsubscribe(UserEventListener listener)
     {
         if (listener != null)
         {

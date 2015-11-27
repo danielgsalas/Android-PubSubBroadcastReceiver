@@ -28,8 +28,8 @@ public class MainActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        // register for event notification
-        AppEventNotifier.register(this);
+        // subscribe for event notification
+        AppEventNotifier.subscribe(this);
     }
 
     @Override
@@ -45,8 +45,8 @@ public class MainActivity
     {
         super.onDestroy();
         
-        // unregister from event notification
-        AppEventNotifier.unregister(this);
+        // unsubscribe from event notification
+        AppEventNotifier.unsubscribe(this);
     }
     
     /**
