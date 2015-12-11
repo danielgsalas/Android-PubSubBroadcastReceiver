@@ -1,7 +1,7 @@
 package com.appstoremarketresearch.pubsubbroadcastreceiver.event;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.AbstractSet;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -17,8 +17,8 @@ public class AppEventNotifier
     extends BroadcastReceiver
     implements UserEventListener
 {
-    private static Set<UserEventListener> userEventListeners = 
-        new HashSet<UserEventListener>();
+    private static AbstractSet<UserEventListener> userEventListeners = 
+        new CopyOnWriteArraySet<UserEventListener>();
     
     @Override
     public void onReceive(Context context, Intent intent)
