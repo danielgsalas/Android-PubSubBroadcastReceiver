@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <EditText
+        android:id="@+id/username"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"        
+        android:hint="@string/username_hint" />    
+    
+    <Button
+        android:id="@+id/sign_in_button"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="@string/sign_in"
+        android:onClick="signIn" />
+    
+    <TextView
+        android:id="@+id/sign_in_greeting"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:onClick="signIn"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <TextView
+        android:id="@+id/user_role_message"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" 
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+</LinearLayout>    

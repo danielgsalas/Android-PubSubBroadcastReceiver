@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Android-PubSubBroadcastReceiver</string>
+    <string name="action_settings">Settings</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_in_failure_message">Unknown username</string>
+    <string name="sign_in_success_message">Welcome %s</string>
+    <string name="username_hint">User Name</string>
+    <string name="user_role_message">Your roles: %s</string>
+
+</resources>
